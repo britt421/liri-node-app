@@ -4,13 +4,14 @@ require("dotenv").config();
 //Imports the key.js file and stores it in a variable
 var keys = require("./keys.js");
 
-// Declares variables for dependencies 
-Spotify = require("node-spotify-api");
-var spotify = new Spotify(keys.spotify);
-var moment = require("moment");
+// Declares variables for dependencies
 var fs = require("fs");
 var axios = require("axios");
+var moment = require("moment");
 var chalk = require("chalk");
+
+Spotify = require("node-spotify-api");
+var spotify = new Spotify(keys.spotify);
 
 // Variable for user commands ("concert-this" "spotify-this-song" "movie-this" "do-what-it-says")
 var command = process.argv[2];
@@ -31,7 +32,7 @@ function concert(userInput) {
             console.log(chalk.blue(("=============================================")));
         }
     )
-        // Is there is an error
+        // If there is an error
         .catch(
             function (err) {
                 console.log("Error occurred: " + err);

@@ -4,7 +4,7 @@ require("dotenv").config();
 //Imports the key.js file and stores it in a variable
 var keys = require("./keys.js");
 
-// Declares variables for dependencies
+// Variables for dependencies
 var fs = require("fs");
 var axios = require("axios");
 var moment = require("moment");
@@ -15,7 +15,7 @@ var spotify = new Spotify(keys.spotify);
 // Variable for user commands (concert-this, spotify-this-song, movie-this, do-what-it-says)
 var command = process.argv[2];
 
-// Variable for user data inputs
+// Variable for user data inputs. Joins multiple words into index[3].
 var userInput = process.argv.splice(3).join(" ");
 
 // Bands in Town function
@@ -56,9 +56,7 @@ function spotifySearch(userInput) {
             limit: 1
         })
             .then(function (response) {
-                console.log(response)
                 let songObject = response.tracks.items;
-                // console.log(response);
                 for (i = 0; i < songObject.length; i++) {
                     console.log("Artist: " + songObject[i].artists[i].name);
                     console.log("Song name: " + songObject[i].name);
@@ -112,7 +110,7 @@ function movie(userInput) {
     }
 };
 
-// Do What It Says (fs) function
+// "Do What It Says" function
 function doWhatItSays() {
     // Access the text content in random.txt using the fs package
     fs.readFile("random.txt", "utf8", function (error, content) {

@@ -1,5 +1,8 @@
 # liri-node-app
 
+LIRI- Language Interpretation and Recognition Interface
+<a node app>
+
 Link to a video of the LIRI node application in action:
 https://drive.google.com/file/d/1LnXvhPSjJm3PPGrcbD5O31f2y4KiQyDT/view
 
